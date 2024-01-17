@@ -4,7 +4,7 @@ import PostsCard from "../../components/PostsCard/PostsCard";
 import classes from "./HomePage.module.css";
 
 const HomePage = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPost] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const getPosts = async () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/posts"
         );
-        setPosts(response.data);
+        setPost(response.data);
         setLoading(false);
       } catch (err) {
         console.log(err);
